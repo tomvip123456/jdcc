@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>相册</title>
+<style>
+body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:95vh;margin:0;background:#f5f7fa;}
+.box{background:#fff;padding:30px 50px;border-radius:12px;box-shadow:0 2px 12px #00000015;text-align:center;}
+.btn{background:#2b78e4;color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:16px;cursor:pointer;margin-top:15px;}
+.btn:hover{background:#2266c9;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;}
+.grid img{width:100%;border-radius:8px;cursor:pointer;transition:0.2s;}
+.grid img:hover{opacity:0.85;}
+
+/* 弹窗样式 */
+.lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;z-index:999;}
+.lightbox img{max-width:85%;max-height:85%;border-radius:8px;}
+.lightbox .close{position:absolute;top:20px;right:30px;color:#fff;font-size:40px;cursor:pointer;}
+.lightbox .prev,.lightbox .next{position:absolute;color:#fff;font-size:50px;cursor:pointer;padding:0 15px;user-select:none;}
+.prev{left:20px;}
+.next{right:20px;}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>📷 我的相册</h2>
+<p>点图放大，可左右翻页｜点×关闭</p >
+
+<div class="grid" id="imgGrid">
+  <img src="images/pic01.jpg" alt="照片1">
+  <img src="images/pic02.jpg" alt="照片2">
+  <img src="images/pic03.jpg" alt="照片3">
+  <img src="images/pic04.jpg" alt="照片4">
+<img src="images/pic05.jpg" alt="照片4">
+<img src="images/pic06.jpg" alt="照片4">
+</div>
+
+<a href="index.html ">
+  <button class="btn">返回首页</button>
+</a >
+</div>
+
+<div class="lightbox" id="lb">
+  <span class="close" onclick="closeLightbox()">×</span>
+  <span class="prev" onclick="prevImg()">‹</span>
+  <img id="lbImg" src="">
+  <span class="next" onclick="nextImg()">›</span>
+</div>
+
+<script>
+// 收集所有图片
+const imgs = Array.from(document.querySelectorAll('#imgGrid img'));
+let currentIndex = 0;
+
+// 给缩略图绑定点击
+imgs.forEach((img,i)=>{
+  img.onclick = ()=>{
+    currentIndex = i;
+    openLightbox(img.src);
+  }
+})
+
+function openLightbox(src){
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lb').style.display = 'flex';
+}
+function closeLightbox(){
+  document.getElementById('lb').style.display = 'none';
+}
+function prevImg(){
+  currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+  document.getElementById('lbImg').src = imgs[currentIndex].src;
+}
+function nextImg(){
+  currentIndex = (currentIndex + 1) % imgs.length;
+  document.getElementById('lbImg').src = imgs[currentIndex].src;
+}
+// 点黑色背景关闭
+document.getElementById('lb').onclick = function(e){
+  if(e.target===this) closeLightbox();
+}
+</script>
+</body>
+</html>
