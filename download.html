@@ -1,71 +1,192 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-资料下载｜在线预览
-<style>
-body{font-family:Arial,sans-serif;min-height:100vh;margin:0;padding:30px 20px;background:#f5f7fa;}
-.box{background:#fff;padding:35px 45px;border-radius:12px;box-shadow:0 2px 12px #00000015;max-width:650px;margin:0 auto;}
-h2{text-align:center;margin-top:0;}
-p.info{color:#666;font-size:15px;text-align:center;margin-bottom:30px;}
-.item{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:16px 0;border-bottom:1px solid #eee;gap:10px;}
-.name{font-size:16px;color:#333;}
-.btn{background:#2b78e4;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-size:14px;cursor:pointer;text-decoration:none;margin:0 3px;}
-.btn:hover{background:#2266c9;}
-.tip{font-size:13px;color:#999;margin-top:30px;}
-.back{text-align:center;margin-top:25px;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料下载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+            background-color: #f7f9fa;
+        }
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 40px;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .nav a {
+            display: inline-block;
+            margin: 0 8px;
+            padding: 10px 18px;
+            background: #3483eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        .nav a:hover {
+            background: #236bc9;
+        }
+        .file-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px #00000012;
+            /* 默认左侧绿条（网盘） */
+            border-left: 5px solid #28a745;
+        }
+        /* 本地文件左侧蓝条 */
+        .file-item.local {
+            border-left-color: #2b78e4;
+        }
+        .file-item h4 {
+            font-size: 18px;
+            color: #222;
+            margin-bottom: 8px;
+        }
+        .file-item p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        /* 统一按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 9px 16px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            margin-right: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        /* 本地文件专用蓝色按钮 */
+        .btn-blue {
+            background-color: #2b78e4;
+        }
+        .btn-blue:hover {
+            background-color: #2266c9;
+        }
+    </style>
 </head>
 <body>
-<div class="box">
-<h2>📁 资料下载 / 在线预览</h2>
-<p class="info">PDF、文本、表格支持在线预览｜压缩包、Office 文件为直接下载</p >
+    <h1>资料下载 & 预览</h1>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我</a>
+        <a href="photo.html">相册</a>
+        <a href="list.html">文章</a>
+        <a href="download.html">资料下载</a>
+    </div>
 
-<!-- ========== 新增文件只在这里复制条目 ========== -->
-<div class="item">
-  <div class="name">1. 示例文档（TXT 可预览）</div>
-  <div>
-    <a href="files/wangzhi.txt " class="btn">在线预览</a >
-    <a href="files/wangzhi.txt" download class="btn">下载</a >
-  </div>
-</div>
+    <!-- ========== 本地文件区域 ========== -->
+    
+    <!-- 1. TXT -->
+    <div class="file-item local">
+        <h4>1. 示例文档（TXT 可预览）</h4>
+        <p>本地文件，支持在线预览或直接下载。</p>
+        <a href="files/wangzhi.txt" target="_blank" class="btn btn-blue">在线预览</a>
+        <a href="files/wangzhi.txt" download class="btn btn-blue">下载</a>
+    </div>
 
-<div class="item">
-  <div class="name">2. 数据表格（CSV 可预览）</div>
-  <div>
-    <a href="files/data.csv" class="btn">在线预览</a >
-    <a href="files/data.csv" download class="btn">下载</a >
-  </div>
-</div>
+    <!-- 2. CSV -->
+    <div class="file-item local">
+        <h4>2. 数据表格（CSV 可预览）</h4>
+        <p>本地文件，支持在线预览或直接下载。</p>
+        <a href="files/data.csv" target="_blank" class="btn btn-blue">在线预览</a>
+        <a href="files/data.csv" download class="btn btn-blue">下载</a>
+    </div>
 
-<div class="item">
-  <div class="name">3. 电子手册（PDF 可预览）</div>
-  <div>
-    <a href="files/qiyoufapiao.pdf" class="btn">在线预览</a >
-    <a href="files/qiyoufapiao.pdf" download class="btn">下载</a >
-  </div>
-</div>
+    <!-- 3. PDF -->
+    <div class="file-item local">
+        <h4>3. 电子手册（PDF 可预览）</h4>
+        <p>本地文件，支持在线预览或直接下载。</p>
+        <a href="files/qiyoufapiao.pdf" target="_blank" class="btn btn-blue">在线预览</a>
+        <a href="files/qiyoufapiao.pdf" download class="btn btn-blue">下载</a>
+    </div>
 
-<div class="item">
-  <div class="name">4. Excel 原版表格（仅下载）</div>
-  <div>
-    <a href="files/churuku.xlsm" download class="btn">下载表格</a >
-  </div>
-</div>
+    <!-- 4. Excel (仅下载) -->
+    <div class="file-item local">
+        <h4>4. Excel 原版表格（仅下载）</h4>
+        <p>浏览器不支持 Excel 在线预览，点击直接下载。</p>
+        <a href="files/churuku.xlsm" download class="btn btn-blue">下载表格</a>
+    </div>
 
-<div class="item">
-  <div class="name">5. 全套资源压缩包（ZIP 仅下载）</div>
-  <div>
-    <a href="files/flash_files.zip" download class="btn">下载压缩包</a >
-  </div>
-</div>
-<!-- ============== 结束区域 ============== -->
+    <!-- 5. ZIP (仅下载) -->
+    <div class="file-item local">
+        <h4>5. 全套资源压缩包（ZIP 仅下载）</h4>
+        <p>浏览器不支持 ZIP 在线预览，点击直接下载。</p>
+        <a href="files/flash_files.zip" download class="btn btn-blue">下载压缩包</a>
+    </div>
 
-<p class="tip">提示：浏览器不支持 Excel、Word、ZIP 在线预览，默认提供下载保存。</p >
+    <!-- ========== 多条百度网盘区域 ========== -->
+    
+    <!-- 资料包 01 -->
+    <div class="file-item">
+        <h4>资料包 01</h4>
+        <p>网盘资源，点击按钮获取提取码并跳转。</p>
+        <a href="https://pan.baidu.com/s/1PmBEmgP_w2mnrSM8AJ3trg" 
+           target="_blank" 
+           class="btn" 
+           onclick="alert('【资料包 01 提取码】：abcd\n\n点击确定后即将在新窗口打开百度网盘。');">
+           👉 前往网盘下载
+        </a>
+    </div>
 
-<div class="back">
-  <a href="index.html" class="btn">返回首页</a >
-</div>
-</div>
+    <!-- 资料包 02 -->
+    <div class="file-item">
+        <h4>资料包 02</h4>
+        <p>网盘资源，点击按钮获取提取码并跳转。</p>
+        <a href="https://pan.baidu.com/s/1JVe8A3bH-WHpe3bccjMSwg " 
+           target="_blank" 
+           class="btn" 
+           onclick="alert('【资料包 02 提取码】：abcd\n\n点击确定后即将在新窗口打开百度网盘。');">
+           👉 前往网盘下载
+        </a>
+    </div>
+
+    <!-- 资料包 03 -->
+    <div class="file-item">
+        <h4>资料包 03</h4>
+        <p>网盘资源，点击按钮获取提取码并跳转。</p>
+        <a href="https://pan.baidu.com/s/这里替换成第三条网盘链接" 
+           target="_blank" 
+           class="btn" 
+           onclick="alert('【资料包 03 提取码】：wxyz\n\n点击确定后即将在新窗口打开百度网盘。');">
+           👉 前往网盘下载
+        </a>
+    </div>
+
+    <!-- 资料包 04 -->
+    <div class="file-item">
+        <h4>资料包 04</h4>
+        <p>网盘资源，点击按钮获取提取码并跳转。</p>
+        <a href="https://pan.baidu.com/s/这里替换成第四条网盘链接" 
+           target="_blank" 
+           class="btn" 
+           onclick="alert('【资料包 04 提取码】：6789\n\n点击确定后即将在新窗口打开百度网盘。');">
+           👉 前往网盘下载
+        </a>
+    </div>
+
 </body>
 </html>
