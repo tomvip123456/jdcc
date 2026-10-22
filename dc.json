@@ -20,6 +20,13 @@
       "name": "路由源C",
       "api": "https://jihulab.com/duomv/apps/-/raw/main/duo.json",
       "type": 1
+    },
+ {
+      "key": "yuan03",
+      "name": "路由源C",
+      "api": "https://jihulab.com/duomv/apps/-/raw/main/duo.json",
+      "type": 1
     }
+    
   ]
 }
