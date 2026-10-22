@@ -1,0 +1,25 @@
+{
+  "name": "我的私有多仓",
+  "version": "1.0",
+  "description": "自用汇总仓库",
+  "sites": [
+    {
+      "key": "yuan01",
+      "name": "路由源A",
+      "api": "https://weixine.net/ysc.json",
+      "type": 1
+    },
+    {
+      "key": "yuan02",
+      "name": "路由源B",
+      "api": "http://home.jundie.top:81/top98.json",
+      "type": 1
+    },
+    {
+      "key": "yuan03",
+      "name": "路由源C",
+      "api": "https://jihulab.com/duomv/apps/-/raw/main/duo.json",
+      "type": 1
+    }
+  ]
+}
