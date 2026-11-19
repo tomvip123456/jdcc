@@ -1,0 +1,29 @@
+name: Auto Update dc.json
+on:
+  schedule:
+    - cron: '0 4 * * *' # 每天北京时间 12:00 自动运行
+  workflow_dispatch: # 允许手动点击按钮触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 这一步会执行我们待会创建的 python 脚本
+      - name: Run update script
+        run: |
+          python update.py
+          
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dc.json
+          git diff --quiet && git diff --cached --quiet || git commit -m "Auto update dc.json"
+          git push
