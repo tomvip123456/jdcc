@@ -6,7 +6,7 @@ import urllib.request
 # 可以填多个，用英文逗号隔开
 # ==========================================
 SOURCE_URLS = [
-    "https://raw.githubusercontent.com/xxx/xxx/main/api.json", # 这里替换成你找的真实源
+    "http://ztha.top/TVBox/GYCK.json", # 这里替换成你找的真实源
 ]
 
 def fetch_json(url):
