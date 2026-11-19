@@ -6,8 +6,10 @@ import urllib.request
 # 可以填多个，用英文逗号隔开
 # ==========================================
 SOURCE_URLS = [
-    "http://ztha.top/TVBox/GYCK.json,https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/多仓订阅.json,https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/单仓聚合.json
-,https://raw.githubusercontent.com/FongMi/TV/refs/heads/release/json/config.json", # 这里替换成你找的真实源
+    
+    "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/单仓聚合.json",
+    "https://raw.githubusercontent.com/FongMi/TV/refs/heads/release/json/config.json"
+
 ]
 
 def fetch_json(url):
