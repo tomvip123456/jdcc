@@ -7,7 +7,7 @@ import urllib.request
 # ==========================================
 SOURCE_URLS = [
     
-    "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/单仓聚合.json",
+    "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/%E5%8D%95%E4%BB%93%E8%81%9A%E5%90%88.json",
     "https://raw.githubusercontent.com/FongMi/TV/refs/heads/release/json/config.json"
 
 ]
